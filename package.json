@@ -1,0 +1,16 @@
+{
+  "name": "task-management-app",
+  "version": "1.0.0",
+  "description": "Task Management Application",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "install-all": "npm install && cd server && npm install && cd ../client && npm install"
+  },
+  "dependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
