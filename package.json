@@ -11,6 +11,9 @@
     "install-all": "npm install && cd server && npm install && cd ../client && npm install"
   },
   "dependencies": {
-    "concurrently": "^7.6.0"
+    "compression": "^1.8.0",
+    "concurrently": "^7.6.0",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.1.0"
   }
 }
