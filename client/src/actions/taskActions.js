@@ -1,4 +1,5 @@
 import axios from 'axios';
+import config from '../config';
 import {
   TASK_LIST_REQUEST,
   TASK_LIST_SUCCESS,
@@ -32,7 +33,7 @@ export const listTasks = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get('http://localhost:3001/api/tasks', config);
+    const { data } = await axios.get(`${config.API_URL}/api/tasks`, config);
 
     dispatch({
       type: TASK_LIST_SUCCESS,
@@ -64,7 +65,7 @@ export const getTaskDetails = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(`http://localhost:3001/api/tasks/${id}`, config);
+    const { data } = await axios.get(`${config.API_URL}/api/tasks/${id}`, config);
 
     dispatch({
       type: TASK_DETAILS_SUCCESS,
@@ -97,7 +98,7 @@ export const createTask = (task) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.post('http://localhost:3001/api/tasks', task, config);
+    const { data } = await axios.post(`${config.API_URL}/api/tasks`, task, config);
 
     dispatch({
       type: TASK_CREATE_SUCCESS,
@@ -131,7 +132,7 @@ export const updateTask = (task) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      `http://localhost:3001/api/tasks/${task._id}`,
+      `${config.API_URL}/api/tasks/${task._id}`,
       task,
       config
     );
@@ -166,7 +167,7 @@ export const deleteTask = (id) => async (dispatch, getState) => {
       },
     };
 
-    await axios.delete(`http://localhost:3001/api/tasks/${id}`, config);
+    await axios.delete(`${config.API_URL}/api/tasks/${id}`, config);
 
     dispatch({ type: TASK_DELETE_SUCCESS });
   } catch (error) {

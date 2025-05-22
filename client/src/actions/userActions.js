@@ -1,4 +1,5 @@
 import axios from 'axios';
+import config from '../config';
 import {
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
@@ -21,7 +22,7 @@ export const login = (email, password) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      'http://localhost:3001/api/users/login',
+      `${config.API_URL}/api/users/login`,
       { email, password },
       config
     );
@@ -61,7 +62,7 @@ export const register = (name, email, password) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      'http://localhost:3001/api/users/register',
+      `${config.API_URL}/api/users/register`,
       { name, email, password },
       config
     );
