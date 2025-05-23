@@ -27,13 +27,13 @@ export const listTasks = () => async (dispatch, getState) => {
       userLogin: { userInfo },
     } = getState();
 
-    const config = {
+    const axiosConfig = {
       headers: {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
 
-    const { data } = await axios.get(`${config.API_URL}/api/tasks`, config);
+    const { data } = await axios.get(`${config.API_URL}/api/tasks`, axiosConfig);
 
     dispatch({
       type: TASK_LIST_SUCCESS,
@@ -59,13 +59,13 @@ export const getTaskDetails = (id) => async (dispatch, getState) => {
       userLogin: { userInfo },
     } = getState();
 
-    const config = {
+    const axiosConfig = {
       headers: {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
 
-    const { data } = await axios.get(`${config.API_URL}/api/tasks/${id}`, config);
+    const { data } = await axios.get(`${config.API_URL}/api/tasks/${id}`, axiosConfig);
 
     dispatch({
       type: TASK_DETAILS_SUCCESS,
@@ -91,14 +91,14 @@ export const createTask = (task) => async (dispatch, getState) => {
       userLogin: { userInfo },
     } = getState();
 
-    const config = {
+    const axiosConfig = {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
 
-    const { data } = await axios.post(`${config.API_URL}/api/tasks`, task, config);
+    const { data } = await axios.post(`${config.API_URL}/api/tasks`, task, axiosConfig);
 
     dispatch({
       type: TASK_CREATE_SUCCESS,
@@ -124,7 +124,7 @@ export const updateTask = (task) => async (dispatch, getState) => {
       userLogin: { userInfo },
     } = getState();
 
-    const config = {
+    const axiosConfig = {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${userInfo.token}`,
@@ -134,7 +134,7 @@ export const updateTask = (task) => async (dispatch, getState) => {
     const { data } = await axios.put(
       `${config.API_URL}/api/tasks/${task._id}`,
       task,
-      config
+      axiosConfig
     );
 
     dispatch({
@@ -161,13 +161,13 @@ export const deleteTask = (id) => async (dispatch, getState) => {
       userLogin: { userInfo },
     } = getState();
 
-    const config = {
+    const axiosConfig = {
       headers: {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
 
-    await axios.delete(`${config.API_URL}/api/tasks/${id}`, config);
+    await axios.delete(`${config.API_URL}/api/tasks/${id}`, axiosConfig);
 
     dispatch({ type: TASK_DELETE_SUCCESS });
   } catch (error) {
