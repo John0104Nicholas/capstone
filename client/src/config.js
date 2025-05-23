@@ -1,6 +1,6 @@
 const config = {
-  FRONTEND_URL: 'https://client.dreamcraftevents.in',
-  API_URL: 'https://guvi-capstone-taskmanager.onrender.com',
+  FRONTEND_URL: 'https://johnguvi.dreamcraftevents.in',
+  API_URL: 'https://capstone-ycni.onrender.com',
 };
 
 export default config; 

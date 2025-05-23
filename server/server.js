@@ -42,7 +42,7 @@ app.use(compression());
 
 // CORS middleware
 app.use(cors({
-  origin: ['https://client.dreamcraftevents.in', 'http://localhost:3000'],
+  origin: ['https://johnguvi.dreamcraftevents.in', 'http://localhost:3000'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
